@@ -1,0 +1,48 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath,amssymb,bm,geometry,booktabs,enumitem}
+\geometry{margin=2.5cm}
+\title{双臂眼在手上装配系统技术报告（核心章节）\\\large 螺母抓取 · 筐/盘放置 · 拧螺丝}
+\author{}\date{}
+\begin{document}
+\maketitle
+\noindent 本章为可编辑公式版本。Word 版见同目录 \texttt{.docx}（公式为图片，避免乱码）。
+
+\section{核心公式}
+\subsection{像素--深度--相机--世界}
+\begin{align}
+z&=\frac{d}{1000},\\
+x&=\frac{(u-c_x)z}{f_x},\\
+y&=\frac{(v-c_y)z}{f_y},\\
+\mathbf{P}_{\mathrm{cam}}&=[x,y,z]^{\mathsf{T}}.
+\end{align}
+\begin{align}
+\mathbf{R}_{w}^{\mathrm{cam}}&=\mathbf{R}_{w}^{\mathrm{ee}}\mathbf{R}_{\mathrm{ee}}^{\mathrm{cam}},\\
+\mathbf{t}_{w}^{\mathrm{cam}}&=\mathbf{R}_{w}^{\mathrm{ee}}\mathbf{t}_{\mathrm{ee}}^{\mathrm{cam}}+\mathbf{t}_{w}^{\mathrm{ee}},\\
+\mathbf{P}_{\mathrm{world}}&=\mathbf{t}_{w}^{\mathrm{cam}}+\mathbf{R}_{w}^{\mathrm{cam}}\mathbf{P}_{\mathrm{cam}}'.
+\end{align}
+
+\subsection{视觉伺服}
+\begin{align}
+\mathbf{e}_{\mathrm{cam}}&=\begin{bmatrix}\dfrac{(u-c_x)z}{f_x}&\dfrac{(v-c_y)z}{f_y}&0\end{bmatrix}^{\mathsf{T}},\\
+\Delta\mathbf{x}_{\mathrm{ee}}&=g\,\mathbf{R}_{\mathrm{ee}}^{\mathrm{cam}}\mathbf{e}_{\mathrm{cam}},\\
+g&=g_0\cdot\mathrm{clip}\!\left(\dfrac{e_{\mathrm{px}}}{e_{\mathrm{px}}+e_{\mathrm{soft}}},g_{\min},1\right).
+\end{align}
+
+\subsection{深度、筐、盘、批头与精度}
+\begin{align}
+d^{*}&=\mathrm{Percentile}_p(\{d_i\}),\\
+\max_i d_i-\min_i d_i&\le\Delta_{\mathrm{tol}},\\
+\mathrm{rim}&=\{(u,v)\mid d(u,v)\le d_{\mathrm{table}}-\Delta_{\mathrm{elevate}}\},\\
+\mathbf{P}_{\mathrm{place}}&=\mathbf{P}_{\mathrm{detect}}+b_{\mathrm{right}}\mathbf{right}+b_{\mathrm{forward}}\mathbf{forward},\\
+\mathbf{p}_{\mathrm{tip}}^{\mathrm{ee}}&=\mathbf{R}^{\mathsf{T}}(\mathbf{p}_{\mathrm{screw}}-\mathbf{t}_{\mathrm{ee}}),\\
+\mathbf{t}_{\mathrm{ee}}'&=\mathbf{p}_{\mathrm{screw}}'-\mathbf{R}\mathbf{p}_{\mathrm{tip}}^{\mathrm{ee}},\\
+e&=\lVert\mathbf{x}_{\mathrm{cur}}-\mathbf{x}_{\mathrm{tgt}}\rVert,\\
+\text{成功}&\Leftrightarrow e\le\varepsilon=0.4\,\mathrm{mm},\\
+z_{\mathrm{cruise}}&=\max(z_{\mathrm{cur}},z_{\mathrm{tgt}})+\Delta_{\mathrm{lift}}.
+\end{align}
+
+\section{功能模块与控制流程}
+正文叙述与 Word 版一致：感知锁定、Plan-once 夹取、观察--对准2--放下、看板批头示教、抬横降+$0.4\,\mathrm{mm}$精贴合。
+
+\end{document}

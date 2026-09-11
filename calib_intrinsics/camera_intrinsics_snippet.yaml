@@ -1,0 +1,7 @@
+camera_intrinsics:
+  width: 1280
+  height: 720
+  fx: 690.961
+  fy: 690.823
+  cx: 638.221
+  cy: 356.413

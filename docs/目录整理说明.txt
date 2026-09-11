@@ -1,0 +1,20 @@
+lbot_pick_demo 目录整理（2026-09-10）
+====================================
+
+根目录保留（日常跑 demo 用）：
+  demo_pick_square.py, grasp_config.yaml, pick_app/, lbot_*.py
+  *.pt 权重（路径写死在代码/yaml，勿挪）
+  robot_model_assets/, lbot/, README.md, requirements-ui.txt
+
+新建/整理：
+  calib_intrinsics/   下一步拍内参图放这里
+  docs/               心得、参考文献、技术报告、运行说明
+  _archive/debug/     调试截图 (_dbg/_basket/_live)
+  _archive/board_holes/  螺丝板孔位标定临时文件
+  _archive/reports/   报告配图与字体缓存
+  _archive/bak/       拆包前 monolith 备份
+  _archive/black_plate_screw_rgb_offline_20260908/  离线快照（非主入口）
+
+未移动：
+  所有 .pt、grasp_config.yaml、主代码（避免破坏相对路径）
+  plate_bias 保持用户定值 0.095 / -0.060

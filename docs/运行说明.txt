@@ -1,0 +1,37 @@
+右臂眼在手捏取 · 精简包
+
+详细交接文档：见同目录 README.md（2026-09-04：观察+RGBD 放筐已跑通）
+
+运行：
+  cd lbot_pick_demo
+  python demo_pick_square.py --confirm
+
+仿真：
+  python demo_sim_home.py
+
+建议：模型预览夹取 → 实机夹取 → 观察 → 对准2(筐) → 放下
+（Plan-once：预览=实机同 waypoints；跳过③④）
+
+流水线要点：
+  夹取：三指平面∥水平；⑦定姿密路点；闭合 tip-sep 小~33 / 中~44 / 大~60
+  观察：抬离 → 到位(少步) → 转腕×5 → place_view_pose（相机角≠夹取腕）
+  筐：basket_mode=rgbd；格 大=前 / 中=中 / 小=近；放下 tip TCP、段间不 hold
+
+常用：
+  --preview / --dry-run / --no-depth
+
+配置：grasp_config.yaml（改完重启）
+  pinch_skip_pregrasp: true
+  pinch_path_mode: mj_ik_smooth
+  pinch_level_finger_plane: true
+  place_view_pose / place_view_orient_steps: 5
+  place_view_keep_wrist_sizes: []
+  basket_mode: rgbd
+  place_tip_standoff_m / place_tip_clearance_m
+  pinch_contact_ik_jump_rad: 0.40           # ⑦勿放大到 2.4
+  depth_roi_mode: nut_surface
+  pinch_return_above_home_m: 0.10
+  verbose_logs / pinch_debug: 排障再开
+
+深度：ROS2 Orbbec；勿同时开 demo_camera
+YOLO：single.pt（nut；大中小靠深度）

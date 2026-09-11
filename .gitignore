@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+.env.*
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# 大体积权重（请本地保留或用 Git LFS / 网盘）
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# 标定与运行产物（按需保留小文件时可改此规则）
+calib_handeye/samples.npz
+calib_handeye/samples_raw*.npz
+calib_handeye/pose_*.png
+calib_intrinsics/calib_*.png
+*.log
+/tmp/
+
+# 备份与归档（体积大、一般不必上库）
+_archive/
+*.bak
+*.bak_*
+demo_pick_square.py.bak_monolith
+
+# 本地缓存
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/

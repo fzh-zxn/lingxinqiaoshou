@@ -1,0 +1,792 @@
+mode: eye_in_hand
+arm: right
+robot:
+  host: 192.168.10.21
+  speed: 0.12
+  accel: 0.4
+  retreat_offset_m: 0.05
+  soft_joint_limits_deg:
+    lower:
+    - -166.73
+    - -183.35
+    - -154.13
+    - -117.46
+    - -154.13
+    - -91.1
+    - -91.1
+    upper:
+    - 114.59
+    - 4.01
+    - 154.13
+    - 117.46
+    - 154.13
+    - 91.1
+    - 91.1
+  soft_limit_eps_deg: 1.0
+  ik_limit_reseed: true
+  default_home_joints:
+  - 1.0941
+  - -0.3156
+  - -1.327
+  - -1.1726
+  - -0.3237
+  - 0.9197
+  - 1.4125
+  default_home_pose_left:
+    xyz:
+    - 0.2763
+    - 0.2139
+    - -0.274
+    rpy:
+    - 2.0247
+    - -1.428
+    - -2.178
+  screw_drive_pose_left:
+    xyz:
+    - 0.3229
+    - 0.1374
+    - -0.293
+    rpy:
+    - 2.0401
+    - -1.451
+    - -2.791
+  screw_board_view_pose:
+    xyz:
+    - 0.3496
+    - 0.0183
+    - -0.15
+    rpy:
+    - 0.0015
+    - 0.0004
+    - 1.5724
+  screw_driver_view_pose:
+    xyz:
+    - 0.3259
+    - -0.245
+    - -0.272
+    rpy:
+    - -0.206
+    - -1.211
+    - 1.6255
+  screw_drive_hold_s: 1.5
+  screw_drive_z_mm: 3.5
+  screw_drive_z_move_s: 0.45
+  screw_drive_pre_press_mm: 2.0
+  left_joint_move_safe_path: true
+  left_joint_move_safe_span_deg: 8.0
+  left_joint_skip_cart_chain: true
+  left_return_above_m: 0.01
+  left_pose_move_safe_path: true
+  left_pose_prefer_joint: true
+  left_pose_joint_travel_m: 0.025
+  left_pose_joint_geo_deg: 10.0
+  left_pose_parallel_clearance_m: 0.01
+  left_speed_max: 0.06
+  left_accel_max: 0.12
+  left_arrive_tol_m: 0.0004
+  left_joint_arrive_tol_rad: 0.008
+  left_finetune_speed: 0.008
+  left_near_speed: 0.018
+  left_ik_reject_soft_clamp: true
+  left_nudge_xy_m: 0.028
+  left_nudge_dz_m: 0.018
+  left_nudge_geo_deg: 12.0
+  bit_tip_in_ee:
+  - -0.17823389075505539
+  - -0.04226386501061098
+  - -0.0019265166287052507
+  bit_calib_rpy:
+  - 1.9801770324756838
+  - -1.430605793075345
+  - -2.1336216908653447
+  bit_calib_hole_id: 2
+  bit_calib_screw_xyz:
+  - 0.2859822120355288
+  - 0.1930231986432174
+  - -0.45635299872998736
+eye_in_hand:
+  joint_move_safe_path: true
+  joint_move_safe_span_deg: 20.0
+  pose_move_safe_path: true
+  pose_return_above_m: 0.01
+  align_approach_speed_scale: 0.7
+  align_approach_step_period_s: 0.05
+  align_approach_v_cap_m: 0.22
+  align_approach_max_step_m: 0.018
+  align_approach_step_frac: 0.42
+  align_approach_err_px: 140
+  align_approach_settle_err_px: 16
+  align_approach_depth_tol_mm: 16
+  align_approach_max_travel_m: 0.4
+  align_coarse_rounds: 7
+  align_coarse_chunk_m: 0.05
+  align_coarse_ok_err_px: 36
+  align_coarse_depth_tol_mm: 18
+  align_coarse_gain: 0.55
+  target_distance_mm: 70
+  distance_tolerance_mm: 12
+  min_distance_mm: 50
+  pixel_tolerance_px: 18
+  align_stable_frames: 4
+  align_max_jump_px: 120
+  align_jump_confirm_frames: 4
+  align_jump_confirm_tol_px: 55
+  align_track_max_px: 220
+  align_bbox_servo_err_px: 70
+  align_max_travel_m: 0.18
+  align_speed_scale: 0.2
+  align_step_period_s: 0.07
+  align_velocity_mul: 0.55
+  align_lost_max_frames: 30
+  align_settle_err_px: 12
+  align_settle_s: 0.18
+  align_servo_deadband_px: 6
+  align_far_err_px: 120
+  align_min_speed_frac: 0.2
+  align_gain_soft_px: 40
+  align_gain_floor: 0.25
+  align_uv_ema: 0.4
+  align_delta_ema: 0.35
+  align_crawl_err_px: 22
+  align_v_cap_max_m: 0.22
+  linear_tol_m: 0.008
+  linear_tol_loose_m: 0.014
+  pinch_return_above_home_m: 0.01
+  pinch_arrival_tol_m: 0.008
+  pregrasp_prefer_align_lock: true
+  home_joint_speed: 0.35
+  home_joint_accel: 0.5
+  approach_max_m: 0.28
+  ik_max_jump_rad: 1.8
+  approach_axis_sign: -1
+  hand_offset_in_camera_m:
+  - 0.06
+  - -0.09
+  - 0.0
+  approach_fallback_depth_mm: 220
+  depth_freeze_below_mm: 150
+  depth_retreat_step_m: 0.01
+  depth_retreat_max_tries: 12
+  depth_retreat_settle_s: 0.18
+  depth_action_min_mm: 80
+  depth_action_max_mm: 360
+  align_working_depth_enable: true
+  align_working_depth_mm: 250
+  align_working_depth_tol_mm: 30
+  align_working_depth_max_step_m: 0.08
+  align_working_depth_max_tries: 8
+  depth_max_up_jump_mm: 55
+  depth_max_down_jump_mm: 120
+  depth_action_max_up_jump_mm: 18
+  depth_layer_reject_min_mm: 12
+  depth_layer_reject_max_mm: 42
+  detection_hold_frames: 10
+  depth_smooth: 0.4
+  depth_consensus_frames: 3
+  depth_consensus_tol_mm: 12
+  depth_consensus_near_percentile: 35
+  align_fusion_depth_spread_mm: 18
+  depth_retreat_min_mm: 80
+  approach_speed_scale: 0.8
+  linear_min_speed: 0.18
+  linear_wait_margin: 3.5
+  linear_wait_min_s: 2.0
+  linear_wait_max_s: 8.0
+  left_linear_wait_min_s: 2.0
+  left_linear_wait_max_s: 8.0
+  pinch_pregrasp_depth_mm: 200
+  pinch_final_depth_mm: 75
+  pregrasp_depth_mode: adaptive
+  pregrasp_margin_mm: 80
+  pregrasp_safety_mm: 40
+  pregrasp_min_depth_mm: 140
+  pregrasp_closed_loop: true
+  pregrasp_step_m: 0.045
+  pregrasp_max_steps: 8
+  pregrasp_depth_tol_mm: 12
+  pregrasp_settle_s: 0.15
+  pregrasp_merge_offset_advance: true
+  pregrasp_offset_before_loop: true
+  pregrasp_apply_hand_offset: false
+  pinch_skip_pregrasp: true
+  plan_replay_seed_tol_deg: 8.0
+  plan_replay_seed_abort_deg: 25.0
+  pinch_mj_ik_polish: false
+  pinch_replay_auto_polish_mm: 15.0
+  pregrasp_ray_approach: true
+  align_fusion_frames: true
+  align_fusion_max_samples: 16
+  depth_roi_mode: nut_surface
+  depth_outlier_mm: 20
+  depth_min_valid_mm: 80
+  depth_max_valid_mm: 900
+  depth_min_fill_ratio: 0.05
+  depth_min_pixels: 8
+  depth_cluster_band_mm: 22
+  depth_cluster_min_mass: 0.1
+  depth_near_percentile: 30
+  depth_roi_margin_frac: 0.08
+  depth_hole_inner_frac: 0.38
+  depth_hole_sep_mm: 8.0
+  depth_min_layer_sep_mm: 8.0
+  depth_hole_search_frac: 0.7
+  depth_hole_margin_frac: 0.06
+  depth_hole_max_shift_frac: 0.4
+  depth_surface_band_mm: 10.0
+  draw_nut_surface_all: true
+  depth_ring_outer_frac: 0.88
+  depth_ring_peak_frac: 0.6
+  depth_ring_weight_sigma: 0.16
+  depth_ring_use_sectors: true
+  depth_sector_spread_max_mm: 12.0
+  depth_sector_band_mm: 10.0
+  depth_spatial_median_ksize: 3
+  depth_temporal_median_frames: 5
+  depth_temporal_spread_mm: 12.0
+  depth_temporal_min_samples: 3
+  depth_min_confidence: 0.35
+  depth_prior_up_tol_mm: 16.0
+  grasp_point_mode: bbox_center
+  grasp_use_ring_center: true
+  grasp_point_side: right
+  grasp_point_top_frac: 0.35
+  grasp_depth_at_face_center: true
+  pinch_grasp_bias_right_m: 0.012
+  pinch_grasp_bias_right_by_size:
+    small: 0.012
+    medium: 0.012
+    big: 0.008
+  pinch_grasp_bias_forward_m: -0.012
+  pinch_grasp_bias_forward_by_size:
+    small: -0.012
+    medium: -0.012
+    big: 0.002
+  pinch_grasp_bias_up_m: 0.0
+  pinch_grasp_bias_along_m: 0.0
+  pinch_grasp_below_mode: height
+  pinch_grasp_below_height_frac: 0.5
+  pinch_grasp_below_height_frac_by_size:
+    small: 0.28
+    medium: 0.45
+    big: 0.5
+  pinch_grasp_below_surface_frac: 0.6
+  pinch_grasp_below_surface_frac_by_size:
+    small: 0.7
+    medium: 0.6
+    big: 0.55
+  pinch_grasp_below_surface_m: 0.0
+  pinch_hand_short_m: 0.03
+  pinch_hand_short_by_size:
+    small: 0.02
+    medium: 0.03
+    big: 0.042
+  pinch_standoff_m: 0.1
+  pinch_standoff_by_size:
+    small: 0.08
+    medium: 0.1
+    big: 0.1
+  pinch_contact_frac: 1.0
+  pinch_level_finger_plane: true
+  pinch_des_z_tilt_deg: 0
+  pinch_des_z_tilt_plane: world_up
+  pinch_prefer_horizontal_x: true
+  pinch_world_up:
+  - 0.0
+  - 0.0
+  - 1.0
+  pinch_contact_extra_m: 0.0
+  pinch_open_tip_top_margin_m: 0.008
+  pinch_open_tip_clear_max_extra_m: 0.005
+  pinch_lift_up_m: 0.05
+  pinch_lift_right_m: 0.0
+  pinch_lift_forward_m: 0.0
+  pinch_return_continuous: true
+  pinch_return_geo_oneshot_deg: 28
+  pinch_return_joint_skip_rad: 0.07
+  place_enabled: true
+  place_inline: false
+  place_hold_after_pick: true
+  place_view_clear_lift_m: 0.08
+  place_view_reach_step_m: 0.1
+  place_view_reach_max_seg: 5
+  place_view_orient_steps: 5
+  place_view_ik_max_jump_rad: 0.7
+  place_view_keep_wrist_sizes: []
+  place_view_skip_final_orient: false
+  place_view_near_m: 0.035
+  place_view_near_deg: 12.0
+  place_view_pose:
+    xyz:
+    - 0.459
+    - -0.307
+    - -0.08
+    rpy:
+    - -0.02
+    - -0.044
+    - 1.3319
+  place_view_lift_m: 0.05
+  place_view_settle_s: 0.4
+  place_detect_timeout_s: 2.5
+  place_detect_poll_s: 0.12
+  place_view_prefer_cart: false
+  place_depth_min_mm: 80
+  place_depth_max_mm: 800
+  place_use_tip_tcp: true
+  place_tip_standoff_m: 0.08
+  place_tip_clearance_m: 0.005
+  plate_tip_standoff_m: 0.15
+  plate_tip_clearance_m: 0.1
+  plate_post_release_lift_m: 0.15
+  plate_apply_bias: true
+  plate_bias_right_m: 0.08
+  plate_bias_forward_m: -0.075
+  place_prefer_plate: true
+  plate_circle_refine: true
+  plate_circle_pad_frac: 0.12
+  plate_circle_min_circularity: 0.65
+  place_tip_approx_m: 0.12
+  place_tip_yaw_search_deg:
+  - 0
+  - -15
+  - 15
+  - -30
+  - 30
+  - -45
+  - 45
+  - -60
+  - 60
+  place_ik_search_jump_rad: 2.6
+  place_max_orient_deg: 70
+  place_orient_step_deg: 12
+  place_drop_orient_steps: 5
+  place_prefer_joint: true
+  place_ik_max_jump_rad: 2.8
+  place_approach_clear_m: 0.06
+  place_combine_translate_orient: true
+  place_combine_step_m: 0.08
+  place_standoff_m: 0.15
+  place_lower_m: 0.0
+  place_bias_right_m: 0.1
+  place_bias_forward_m: -0.05
+  place_drop_down_m: 0.0
+  place_bias_right_by_size: {}
+  place_bias_forward_by_size: {}
+  place_tip_max_lat_m: 0.085
+  place_tip_short_extra_m: 0.0
+  place_require_detection: true
+  place_depth_roi_mode: foreground
+  place_slot_forward:
+  - 1.0
+  - 0.0
+  - 0.0
+  place_draw_slots: true
+  place_return_home: true
+  verbose_logs: false
+  pinch_debug: false
+  pinch_align_mode: full_6dof
+  pinch_align_max_travel_m: 0.2
+  pinch_align_max_d_rpy_deg: 55
+  pinch_align_step_deg: 15
+  pinch_align_step_m: 0.045
+  pinch_align_continue_on_fail: true
+  pinch_contact_continue_on_fail: false
+  pinch_plan_max_end_err_m: 0.025
+  pinch_replay_fail_err_mm: 40.0
+  pinch_path_mode: mj_ik_smooth
+  pinch_path_continuous: true
+  pinch_joint_blend_deg: 25
+  pinch_align_blend_deg: 12.0
+  pinch_align_auto_polish_mm: 6.0
+  pinch_replay_auto_polish_deg: 1.5
+  pinch_mj_ik_max_steps: 4
+  pinch_mj_ik_taper: 0.72
+  pinch_mj_ik_polish_mm: 15.0
+  pinch_contact_step_m: 0.012
+  pinch_contact_max_steps: 6
+  pinch_contact_min_steps: 4
+  pinch_contact_ik_jump_rad: 0.4
+  pinch_align_ik_jump_rad: 1.85
+  pinch_contact_blend_deg: 10.0
+  pinch_contact_auto_polish_mm: 4.0
+  pinch_contact_auto_polish_deg: 1.5
+  pinch_close_sep_af_ratio: 0.88
+  pinch_cart_oneshot_geo_deg: 12
+  pinch_cart_bulk_geo_deg: 28
+  pinch_force_stepped: true
+  pinch_step_prefer_joint: false
+  pinch_arrival_tol_loose_m: 0.01
+  pinch_arrival_tol_deg: 3.5
+  grasp_straight_steps: 8
+  pinch_tip_mode: tip
+  pinch_pad_tip_frac: 0.08
+  pinch_grasp_mode: power5
+  servo_gain: 0.35
+  max_servo_steps: 15
+  servo_sleep_s: 0.28
+  servo_xy_rotate_deg: 0
+  servo_flip_x: false
+  servo_flip_y: false
+  lock_mj_ray_fuse_lateral: true
+  lock_mj_ray_fuse_lateral_mm: 2.5
+  camera_depth_sign: -1
+  model_preview_seg_s: 1.0
+  model_ui_tick_ms: 50
+  busy_ui_tick_ms: 66
+  align_yolo_period_s: 0.06
+  place_align_yolo_period_s: 0.12
+  idle_yolo_period_s: 0.08
+  busy_yolo_period_s: 0.2
+  vision_ui_scale: 0.5
+  model_preview_cart_steps: 8
+  model_preview_align_steps: 6
+  model_preview_pinch_steps: 4
+  model_preview_trail_max: 240
+  virtual_object_in_camera_m:
+  - 0.02
+  - 0.05
+  - 0.25
+  model_arm_joint_signs:
+  - -1
+  - -1
+  - -1
+  - 1
+  - -1
+  - 1
+  - -1
+  model_arm_joint_signs_left:
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  - -1
+  model_hand_qpos_mirror: false
+  camera_on_ee:
+    translation:
+    - 0.084
+    - 0.01
+    - -0.014
+    euler_rpy:
+    - 0.0
+    - 0.0
+    - -1.5707963267948966
+    flip_x: false
+    flip_y: true
+  camera_on_ee_prefer_yaml: true
+camera_intrinsics:
+  width: 1280
+  height: 720
+  fx: 690.0
+  fy: 690.0
+  cx: 640.0
+  cy: 356.0
+detection:
+  conf: 0.48
+  place_conf: 0.35
+  stable_frames: 4
+  draw_yolo_boxes: true
+  place_model: pan_best.pt
+  driver_model: 刀_best(2).pt
+  driver_conf: 0.35
+  driver_ui_default_on: true
+  board_model: 板_best.pt
+  board_conf: 0.35
+  basket_mode: rgbd
+  basket_model: none
+  basket_rgbd:
+    min_rim_delta_mm: 20
+    require_depth: false
+    elevate_mm: 22
+    aspect_prior: 1.45
+    use_for_place: true
+    ui_default_on: true
+    proc_width: 640
+    period_s: 0.12
+    also_run_place_yolo: false
+  screw_board:
+    enabled: true
+    ui_default_on: true
+    prefer_yolo: true
+    yolo_fallback_rgbd: true
+    yolo_rgb_refine: true
+    refine_pad_frac: 0.15
+    black_max_gray: 75
+    refine_min_area_frac_roi: 0.08
+    refine_min_dark_coverage: 0.24
+    refine_min_edge_support: 0.1
+    occlusion_hold_frames: 24
+    proc_width: 640
+    period_s: 0.15
+    prefer_rgb: true
+    prefer_depth_plane: false
+    min_area_frac: 0.02
+    max_area_frac: 0.65
+    aspect_min: 1.15
+    aspect_max: 3.8
+    min_rect_fill: 0.55
+    min_depth_mm: 80
+    max_depth_mm: 900
+    depth_band_mm: 40
+    dark_v_max: 95
+    dark_s_max: 90
+    max_border_touch: 0.08
+    hsv_low:
+    - 0
+    - 0
+    - 90
+    hsv_high:
+    - 180
+    - 70
+    - 255
+    holes_layout: corners_inner8_measured
+    holes_count: 8
+    hole_radius_frac: 0.048
+    hole_min_delta: 5.0
+    hole_min_contrast: 5.0
+    hole_max_sat: 140.0
+    hole_occupy_frames: 2
+    hole_refine_ema: 0.35
+    hole_score_min: 0.3
+    align_distance_mm: 250
+    align_pixel_tol_px: 20
+    align_settle_err_px: 16
+    align_depth_tol_mm: 16
+    holes:
+    - id: 0
+      u: 0.1208
+      v: 0.1611
+      corner: TL
+      local: 0
+    - id: 1
+      u: 0.2588
+      v: 0.1989
+      corner: TL
+      local: 1
+    - id: 2
+      u: 0.9039
+      v: 0.1622
+      corner: TR
+      local: 0
+    - id: 3
+      u: 0.7703
+      v: 0.1977
+      corner: TR
+      local: 1
+    - id: 4
+      u: 0.1396
+      v: 0.862
+      corner: BL
+      local: 0
+    - id: 5
+      u: 0.2669
+      v: 0.7806
+      corner: BL
+      local: 1
+    - id: 6
+      u: 0.9015
+      v: 0.8407
+      corner: BR
+      local: 0
+    - id: 7
+      u: 0.7693
+      v: 0.7675
+      corner: BR
+      local: 1
+  place_ui_default_on: false
+  basket_conf: 0.3
+  track_colors:
+  - big
+  - medium
+  - small
+  size_metric:
+    enabled: true
+    box_shrink: 0.13
+    size_scale: 1.0
+    size_calib_mode: piecewise
+    classify_space: raw
+    classify_thresholds_mm:
+    - 50.0
+    - 39.0
+    hex_size_mode: min
+    aspect_max: 1.35
+    boundary_margin_mm: 1.5
+    prefer_smaller_on_boundary: true
+    yolo_prior_weight: 0.0
+    temporal_filter: true
+    temporal_frames: 7
+    temporal_ema: 0.35
+    temporal_jump_reject_mm: 8.0
+    temporal_hysteresis_mm: 2.0
+    temporal_vote_frames: 3
+    temporal_min_samples: 3
+    temporal_track_grid_px: 48
+    temporal_max_tracks: 12
+    temporal_stale_frames: 18
+    classify_relative: false
+    relative_min_gap_mm: 4.0
+    size_calib_points:
+    - - 59.0
+      - 70.0
+    - - 41.0
+      - 50.0
+    - - 35.0
+      - 41.0
+    nominal_raw_mm:
+      big: 59.0
+      medium: 41.0
+      small: 35.0
+    reject_mm: 12.0
+    reject_mm_raw: 8.0
+    yolo_all_then_metric: true
+    nominal_hex_mm:
+      big: 70.0
+      medium: 50.0
+      small: 41.0
+    nominal_long_mm:
+      big: 70.0
+      medium: 50.0
+      small: 41.0
+    nominal_height_mm:
+      big: 36.0
+      medium: 28.7
+      small: 23.8
+hand_presets:
+  right:
+    open:
+    - 200
+    - 0
+    - 255
+    - 255
+    - 255
+    - 255
+    grasp:
+    - 150
+    - 0
+    - 255
+    - 140
+    - 140
+    - 255
+    pinch_open:
+    - 200
+    - 0
+    - 255
+    - 255
+    - 255
+    - 255
+    pinch_close:
+    - 150
+    - 0
+    - 255
+    - 140
+    - 140
+    - 255
+    pinch_close_by_size:
+      small:
+      - 150
+      - 0
+      - 255
+      - 140
+      - 140
+      - 255
+      medium:
+      - 150
+      - 0
+      - 255
+      - 145
+      - 145
+      - 255
+      big:
+      - 150
+      - 0
+      - 255
+      - 185
+      - 185
+      - 255
+    pinch_stabilize_by_size:
+      small:
+      - 150
+      - 0
+      - 140
+      - 140
+      - 140
+      - 140
+      medium:
+      - 150
+      - 0
+      - 130
+      - 145
+      - 145
+      - 130
+      big:
+      - 150
+      - 0
+      - 170
+      - 185
+      - 185
+      - 170
+    pinch_close_by_size_pinch:
+      small:
+      - 150
+      - 50
+      - 136
+      - 136
+      - 255
+      - 255
+      medium:
+      - 150
+      - 50
+      - 156
+      - 156
+      - 255
+      - 255
+      big:
+      - 150
+      - 50
+      - 182
+      - 182
+      - 255
+      - 255
+  left:
+    open:
+    - 255
+    - 0
+    - 255
+    - 255
+    - 255
+    - 255
+    grasp:
+    - 255
+    - 0
+    - 100
+    - 100
+    - 45
+    - 50
+    unscrew:
+    - 255
+    - 0
+    - 40
+    - 100
+    - 45
+    - 50
+    screw_in:
+    - 255
+    - 0
+    - 100
+    - 40
+    - 45
+    - 50
+    pinch_open:
+    - 255
+    - 0
+    - 255
+    - 255
+    - 255
+    - 255
+    pinch_close:
+    - 255
+    - 0
+    - 100
+    - 100
+    - 45
+    - 50

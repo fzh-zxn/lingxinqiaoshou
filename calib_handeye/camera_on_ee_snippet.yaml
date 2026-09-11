@@ -1,0 +1,19 @@
+camera_on_ee:
+  translation:
+  - -0.015294866263931617
+  - -0.03831069615715418
+  - -0.048294321659479895
+  euler_rpy:
+  - -3.106555588481889
+  - 0.0986399971340797
+  - -4.708011341453014
+  flip_x: false
+  flip_y: true
+camera_on_ee_prefer_yaml: true
+_meta:
+  method: park+board_refine
+  pair_rot_err_deg: 2.558423953124123
+  pair_trans_err_mm: 9.097640877512557
+  board_rms_mm: 5.760313168280805
+  n_samples: 12
+  note: 勿改 plate_bias_*；确认后再点「写回外参」
